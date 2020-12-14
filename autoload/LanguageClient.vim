@@ -1410,6 +1410,12 @@ function! LanguageClient_NCM2OnComplete(context) abort
                 \ }, v:null)
 endfunction
 
+function! LanguageClient_UpdateQuickfixList() abort
+  let l:params = {}
+  let l:Callback = v:null
+  return LanguageClient#Call('LanguageClient_UpdateQuickfixList', l:params, l:Callback)
+endfunction
+
 function! LanguageClient#explainErrorAtPoint(...) abort
     let extra = get(a:000, 0, {})
     let silent_mode = get(extra, 'silent', v:false)

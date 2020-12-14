@@ -121,6 +121,7 @@ impl LanguageClient {
             REQUEST_SEMANTIC_SCOPES => self.semantic_scopes(&params),
             REQUEST_SHOW_SEMANTIC_HL_SYMBOLS => self.semantic_highlight_symbols(&params),
             REQUEST_EXECUTE_CODE_ACTION => self.execute_code_action(&params),
+            REQUEST_UPDATE_QUICKFIXLIST => self.handle_update_quickfixlist(),
 
             clangd::request::SwitchSourceHeader::METHOD => {
                 self.text_document_switch_source_header(&params)

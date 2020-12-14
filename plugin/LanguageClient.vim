@@ -207,6 +207,7 @@ function! s:ConfigureAutocmds()
     nnoremap <Plug>(lcn-code-action)        :call LanguageClient_textDocument_codeAction()<CR>
     vnoremap <Plug>(lcn-code-action)        :call LanguageClient#textDocument_visualCodeAction()<CR>
     nnoremap <Plug>(lcn-code-lens-action)   :call LanguageClient_handleCodeLensAction()<CR>
+    nnoremap <Plug>(lcn-update-quickfixlist) :call LanguageClient_UpdateQuickfixList()<CR>
     nnoremap <Plug>(lcn-symbols)            :call LanguageClient_textDocument_documentSymbol()<CR>
     nnoremap <Plug>(lcn-highlight)          :call LanguageClient_textDocument_documentHighlight()<CR>
     nnoremap <Plug>(lcn-explain-error)      :call LanguageClient_explainErrorAtPoint()<CR>

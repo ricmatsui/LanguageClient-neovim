@@ -377,6 +377,12 @@ impl LanguageClient {
         Ok(())
     }
 
+    pub fn handle_update_quickfixlist(&self) -> Result<Value> {
+        self.update_quickfixlist()?;
+
+        Ok(json!([]))
+    }
+
     fn update_quickfixlist(&self) -> Result<()> {
         let diagnostics = self.get_state(|state| state.diagnostics.clone())?;
         let qflist: Vec<_> = diagnostics
@@ -798,7 +804,6 @@ impl LanguageClient {
             state.roots.remove(language_id);
             Ok(())
         })?;
-        self.update_quickfixlist()?;
 
         self.vim()?.command(vec![
             format!("let {}=0", VIM_SERVER_STATUS),
@@ -2129,7 +2134,6 @@ impl LanguageClient {
                 .insert(filename.clone(), diagnostics.clone());
             Ok(())
         })?;
-        self.update_quickfixlist()?;
 
         let mut severity_count: HashMap<String, u64> = [
             (
